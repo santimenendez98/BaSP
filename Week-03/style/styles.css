@@ -70,7 +70,7 @@ nav ul li a{
 }
 
 .contact-information h3 {
-    margin-left: 66px;
+    margin-left: 50px;
     font-weight: bold;
     color: white;
     text-decoration: underline;
@@ -99,6 +99,8 @@ main {
     position: relative;
     margin-left: 312px;
 }
+
+/* First main landing page article */
 
 .article-title {
     margin-left: 74px;
@@ -131,6 +133,44 @@ main {
     margin-left: 61px;
     width: 500px;
     height: 315px;
+}
+
+/* Features */
+
+.features {
+    margin-top: 65px;
+    margin-left: 170px;
+}
+
+.features h2 {
+    margin-left: 420px;
+    color: var(--primary-color);
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline var(--secundary-color);
+}
+
+.features article {
+    display: inline-block;
+    width: 450px;
+    margin-top: 58px;
+}
+
+.features img {
+    margin-left: 2px;
+}
+
+.features h3 {
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.features p {
+    margin-top: 34px;
+    padding: 40px;
 }
 
 /* Footer */
