@@ -91,6 +91,57 @@ nav ul li a{
     margin-right: 16.36px;
 }
 
+/* Main */
+
+main {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    margin-left: 312px;
+}
+
+.article-title {
+    margin-left: 74px;
+}
+.article-title article {
+    float: left;
+    width: 500px;
+    text-align: center;
+    margin-top: 119px;
+}
+
+.article-title h1 {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.article-title h2 {
+    color: #49A37B;
+    font-weight: 23px;
+    text-transform: uppercase;
+}
+
+.article-title p {
+    margin-top: 34px;
+}
+
+.article-title img {
+    margin-top: 65px;
+    margin-left: 61px;
+    width: 500px;
+    height: 315px;
+}
+
+/* Footer */
+
+footer {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    margin-left: 312px;
+}
+
 
 
 
