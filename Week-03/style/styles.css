@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+/* Variables */
+
+:root {
+    --primary-color: #373867;
+    --secundary-color: #AACE9E;
+}
+
+/* General */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-size: 20px;
+    color: var(--primary-color);
+    font-style: normal;
+}
+
+/* Header */
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--primary-color);
+    width: 1512px;
+    z-index: 1;
+}
+
+header img {
+    padding: 30px;
+}
+
+/* Aside */
+
+aside {
+    position: fixed;
+    background-color: var(--secundary-color);
+    width: 313px;
+    height: 915px;
+}
+
+nav {
+    margin-top: 12.38px;
+    text-align: center;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+nav ul li {
+    margin-top: 16.44px;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: white;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-information {
+    margin-top: 300px;
+    margin-left: 34.36px;
+}
+
+.contact-information h3 {
+    margin-left: 66px;
+    font-weight: bold;
+    color: white;
+    text-decoration: underline;
+}
+
+.contact-information ul {
+    margin-top: 40px;
+}
+
+.contact-information ul li{
+    margin-top: 23px;
+    color: var(--primary-color);
+}
+
+.contact-information img  {
+    width: 15.27px;
+    height: 15.27px;
+    margin-right: 16.36px;
+}
+
+
+
+
