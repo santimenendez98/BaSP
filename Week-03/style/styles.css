@@ -286,16 +286,99 @@ main {
     margin-left: 150px;
 }
 
+.activity-list {
+    margin-top: 62px;
+    float: left;
+}
+
+.activity-list ul li {
+    padding: 10px;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 24px;
+    list-style: inside;
+}
+
+.gym-activity figure img {
+    margin-top: 62px;
+    margin-left: 180px;
+    width: 636px;
+}
+
+/* Membership */
+
+.membership {
+    margin-left: 150px;
+}
+
+.membership table {
+    margin-top: 62px;
+}
+
+.membership-column {
+    background-color: #D9D9D9;
+}
+
+.membership-column-th {
+    padding: 20px;
+    width: 210px;
+    color: #373867;
+    font-weight: bold
+}
+
+.column-bonus {
+    width: 300px;
+}
+
+.bonus-membership-white td{
+    padding: 20px;
+    width: 210px;
+    color: #373867;
+    font-weight: bold;
+}
+
+.bonus-membership-white img {
+    margin-left: 100px;
+}
+
+.bonus-membership-grey td{
+    padding: 20px;
+    width: 210px;
+    color: var(--primary-color);
+    font-weight: bold;
+    background-color: #D9D9D9;
+}
+
+.bonus-membership-grey img {
+    margin-left: 100px;
+}
 
 /* Footer */
 
 footer {
-    margin: 0;
-    padding: 0;
-    position: relative;
+    padding: 8px;
     margin-left: 312px;
+    margin-top: 65px;
+    background-color: var(--secundary-color);
 }
 
+footer span {
+    display: block;
+    margin-left: 550px;
+}
+
+footer a {
+    padding: 10px;
+}
+
+footer p {
+    display: block;
+    padding-bottom: 20px;
+    margin-top: 5px;
+    margin-left: 450px;
+    color: white;
+    font-size: 14px;
+}
 
 
 
