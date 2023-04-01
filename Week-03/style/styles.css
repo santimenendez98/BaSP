@@ -7,6 +7,14 @@
     --secundary-color: #AACE9E;
 }
 
+.titles-articles {
+        margin-left: 380px;
+        color: var(--primary-color);
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: underline var(--secundary-color);
+}
+
 /* General */
 
 body {
@@ -54,7 +62,7 @@ nav {
 nav ul li {
     margin-top: 16.44px;
     padding: 10px;
-    border: 2px solid var(--primary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
     background-color: white;
 }
@@ -69,7 +77,7 @@ nav ul li a{
     margin-left: 34.36px;
 }
 
-.contact-information h3 {
+.contact-information h2 {
     margin-left: 50px;
     font-weight: bold;
     color: white;
@@ -94,6 +102,7 @@ nav ul li a{
 /* Main */
 
 main {
+    width: 1200px;
     margin: 0;
     padding: 0;
     position: relative;
@@ -142,14 +151,6 @@ main {
     margin-left: 170px;
 }
 
-.features h2 {
-    margin-left: 420px;
-    color: var(--primary-color);
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: underline var(--secundary-color);
-}
-
 .features article {
     display: inline-block;
     width: 450px;
@@ -170,8 +171,48 @@ main {
 
 .features p {
     margin-top: 34px;
-    padding: 40px;
+    padding: 10px;
 }
+
+/* About Mega Rocket */
+
+.about-mega-rocket {
+    margin-top: 51px;
+    margin-left: 100px;
+}
+
+.about-mega-rocket-article-1 {
+    margin-top: 51px;
+}
+
+.about-mega-rocket-article-1 img {
+    width: 453px;
+}
+
+.about-mega-rocket-article-1 p {
+    float: right;
+    margin-top: 37px;
+    margin-right: 91px;
+    width: 554px;
+    height: 184px;
+    text-align: right;
+    font-weight: 400;
+    line-height: 23px;
+}
+
+.about-mega-rocket-article-2 img {
+    width: 452px;
+}
+
+.about-mega-rocket-article-2 p {
+    float: left;
+    width: 554px;
+    margin-top: 40px;
+    margin-right: 10px;
+    line-height: 23px;
+    font-weight: 400;
+}
+
 
 /* Footer */
 
