@@ -7,6 +7,11 @@
     --secundary-color: #AACE9E;
 }
 
+::placeholder {
+    color: var(--primary-color);
+    opacity: 0.5;
+}
+
 .titles-articles {
         margin-left: 380px;
         color: var(--primary-color);
@@ -178,7 +183,7 @@ main {
 
 .about-mega-rocket {
     margin-top: 51px;
-    margin-left: 100px;
+    margin-left: 87px;
 }
 
 .about-mega-rocket-article-1 {
@@ -186,14 +191,15 @@ main {
 }
 
 .about-mega-rocket-article-1 img {
-    width: 453px;
+    width: 500px;
+    height: 350px;
 }
 
 .about-mega-rocket-article-1 p {
     float: right;
-    margin-top: 37px;
+    margin-top: 30px;
     margin-right: 91px;
-    width: 554px;
+    width: 500px;
     height: 184px;
     text-align: right;
     font-weight: 400;
@@ -201,16 +207,83 @@ main {
 }
 
 .about-mega-rocket-article-2 img {
-    width: 452px;
+    margin-left: 30px;
+    width: 500px;
+    height: 350px;
 }
 
 .about-mega-rocket-article-2 p {
     float: left;
-    width: 554px;
-    margin-top: 40px;
+    width: 500px;
+    margin-top: 30px;
     margin-right: 10px;
     line-height: 23px;
     font-weight: 400;
+}
+
+/* Get in touch */
+
+.get-in-touch {
+    margin-left: 150px;
+}
+
+.get-in-touch input {
+    margin: 10px 0 10px 0;
+    width: 260px;
+    height: 37px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+}
+
+.first-part-form {
+    float: left;
+    width: 400px;
+}
+
+.btn-submit-form input {
+    width: 123px;
+    height: 47px;
+    background-color: var(--secundary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    border: 0;
+}
+
+.second-part-form {
+    margin-top: 61px;
+}
+
+.second-part-form select {
+    margin: 10px 0 10px 0;
+    width: 566px;
+    height: 37px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.second-part-form textarea {
+    margin: 10px 0 10px 0;
+    width: 560px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    resize: none;
+}
+
+.get-in-touch label {
+    display: block;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 16px;
+}
+
+
+/* Gym Activity */
+
+.gym-activity {
+    margin-top: 100px;
+    margin-left: 150px;
 }
 
 
