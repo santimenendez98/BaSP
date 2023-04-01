@@ -23,19 +23,19 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="">
+                        <a href="#">
                             <img src="assets/home.png" alt="Home">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="#">
                             <img src="assets/sign-up.png" alt="Sign up">
                             Sign Up
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="#">
                             <img src="assets/log-in.png" alt="Log in">
                             Sign In
                         </a>
@@ -166,59 +166,58 @@
                 </article>
             </section>
 
-            <section>
-                <h2>
+            <section class="get-in-touch">
+                <h2 class="titles-articles">
                     Get in touch
                 </h2>
                     <form action="#">
+                    <div class="first-part-form">
                         <div>
-                            <label>
+                            <label for="first-name">
                                 First name:
                             </label>
-                            <input type="value" placeholder="Enter Name">
+                            <input type="text" placeholder="Enter Name" id="first-name">
                         </div>
-
                         <div>
-                            <label>
+                            <label for="last-name">
                                 Last name:
                             </label>
-                            <input type="value" placeholder="Enter Last Name">
+                            <input type="text" placeholder="Enter Last Name" id="last-name">
                         </div>
-
                         <div>
-                            <label>
+                            <label for="email">
                                 Email adress:
                             </label>
-                            <input type="email" placeholder="Enter Email">
+                            <input type="email" placeholder="Enter Email" id="email">
                         </div>
-
-                        <div>
+                        <div class="btn-submit-form">
                             <input type="submit" value="Submit">
                         </div>
-
+                    </div>
+                    <div class="second-part-form">
                         <div>
-                            <label>
+                            <label for="contact-reason">
                             Contact reason:
                             </label>
-                            <select>
+                            <select id="contact-reason">
                                 <option selected disabled hidden>Choose contact reason</option>
                                 <option value="I want to make a claim">I want to make a claim</option>
                                 <option value="I want to realize a query or suggestion">I want to realize a query or suggestion</option>
                                 <option value="I want to know the memberships and costs">I want to know the memberships and costs</option>
                             </select>
                         </div>
-
                         <div>
-                            <label>
+                            <label for="text-area-form">
                                 Message:
                             </label>
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Enter your message"></textarea>
+                            <textarea name="" id="text-area-form" cols="30" rows="10" placeholder="Enter your message"></textarea>
                         </div>
+                    </div>
                     </form>
             </section>
 
-            <section>
-                <h2>
+            <section class="gym-activity">
+                <h2 class="titles-articles">
                     Gym activities
                 </h2>
 
