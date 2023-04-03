@@ -7,19 +7,6 @@
     --secundary-color: #AACE9E;
 }
 
-::placeholder {
-    color: var(--primary-color);
-    opacity: 0.5;
-}
-
-.titles-articles {
-        margin-left: 380px;
-        color: var(--primary-color);
-        font-size: 30px;
-        font-weight: bold;
-        text-decoration: underline var(--secundary-color);
-}
-
 /* General */
 
 body {
@@ -34,13 +21,27 @@ p {
     font-style: normal;
 }
 
+.titles-articles {
+    margin-left: 380px;
+    color: var(--primary-color);
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline var(--secundary-color);
+}
+
+::placeholder {
+    color: var(--primary-color);
+    opacity: 0.5;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
 /* Header */
 
 header {
-    position: sticky;
-    top: 0;
+    position: fixed;
     background-color: var(--primary-color);
-    width: 1512px;
+    width: 100%;
     z-index: 1;
 }
 
@@ -52,9 +53,11 @@ header img {
 
 aside {
     position: fixed;
+    margin-top: 105px;
     background-color: var(--secundary-color);
     width: 313px;
-    height: 915px;
+    height: 100%;
+    z-index: 1;
 }
 
 nav {
@@ -72,7 +75,7 @@ nav ul li {
     background-color: white;
 }
 
-nav ul li a{
+nav ul li a {
     text-decoration: none;
     font-weight: bold;
 }
@@ -93,7 +96,7 @@ nav ul li a{
     margin-top: 40px;
 }
 
-.contact-information ul li{
+.contact-information ul li {
     margin-top: 23px;
     color: var(--primary-color);
 }
@@ -107,23 +110,22 @@ nav ul li a{
 /* Main */
 
 main {
-    width: 1200px;
-    margin: 0;
+    width: 100%;
     padding: 0;
     position: relative;
-    margin-left: 312px;
+    margin-left: 120px;
 }
 
 /* First main landing page article */
 
 .article-title {
-    margin-left: 74px;
+    margin-left: 370px;
 }
 .article-title article {
     float: left;
     width: 500px;
     text-align: center;
-    margin-top: 119px;
+    margin-top: 220px;
 }
 
 .article-title h1 {
@@ -143,7 +145,7 @@ main {
 }
 
 .article-title img {
-    margin-top: 65px;
+    margin-top: 180px;
     margin-left: 61px;
     width: 500px;
     height: 315px;
@@ -153,12 +155,12 @@ main {
 
 .features {
     margin-top: 65px;
-    margin-left: 170px;
+    margin-left: 420px;
 }
 
 .features article {
     display: inline-block;
-    width: 450px;
+    width: 600px;
     margin-top: 58px;
 }
 
@@ -177,13 +179,15 @@ main {
 .features p {
     margin-top: 34px;
     padding: 10px;
+    margin-left: 55px;
+    width: 350px;
 }
 
 /* About Mega Rocket */
 
 .about-mega-rocket {
     margin-top: 51px;
-    margin-left: 87px;
+    margin-left: 370px;
 }
 
 .about-mega-rocket-article-1 {
@@ -197,9 +201,9 @@ main {
 
 .about-mega-rocket-article-1 p {
     float: right;
-    margin-top: 30px;
-    margin-right: 91px;
-    width: 500px;
+    margin-top: 60px;
+    margin-right: 200px;
+    width: 590px;
     height: 184px;
     text-align: right;
     font-weight: 400;
@@ -207,16 +211,15 @@ main {
 }
 
 .about-mega-rocket-article-2 img {
-    margin-left: 30px;
     width: 500px;
     height: 350px;
 }
 
 .about-mega-rocket-article-2 p {
     float: left;
-    width: 500px;
-    margin-top: 30px;
-    margin-right: 10px;
+    width: 590px;
+    margin-top: 60px;
+    margin-right: 30px;
     line-height: 23px;
     font-weight: 400;
 }
@@ -224,7 +227,7 @@ main {
 /* Get in touch */
 
 .get-in-touch {
-    margin-left: 150px;
+    margin-left: 450px;
 }
 
 .get-in-touch input {
@@ -283,7 +286,7 @@ main {
 
 .gym-activity {
     margin-top: 100px;
-    margin-left: 150px;
+    margin-left: 450px;
 }
 
 .activity-list {
@@ -308,7 +311,7 @@ main {
 /* Membership */
 
 .membership {
-    margin-left: 150px;
+    margin-left: 450px;
 }
 
 .membership table {
@@ -330,7 +333,7 @@ main {
     width: 300px;
 }
 
-.bonus-membership-white td{
+.bonus-membership-white td {
     padding: 20px;
     width: 210px;
     color: #373867;
@@ -341,7 +344,7 @@ main {
     margin-left: 100px;
 }
 
-.bonus-membership-grey td{
+.bonus-membership-grey td {
     padding: 20px;
     width: 210px;
     color: var(--primary-color);
@@ -360,6 +363,7 @@ footer {
     margin-left: 312px;
     margin-top: 65px;
     background-color: var(--secundary-color);
+    width: 100%;
 }
 
 footer span {
