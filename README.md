@@ -12,6 +12,10 @@ The layout of the page was designed and all the user interfaces were ready to cr
 
 Start designing the landing page based on the figma layout
 
+## Week 03
+
+Styling the landing page with the figma style using pixel perfect
+
 ## Authors
 
 - Santiago Menendez
