@@ -2,19 +2,19 @@
 /* Aside */
 
 aside {
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
     position: fixed;
-    margin-top: 104px;
+    padding: 20px;
     background-color: var(--secundary-color);
-    width: 313px;
     height: 100%;
-    z-index: 1;
+    width: 25%;
 }
 
 nav {
-    margin-top: 12px;
     text-align: center;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-top: 35%;
 }
 
 nav ul li {
@@ -31,12 +31,11 @@ nav ul li a {
 }
 
 .contact-information {
-    margin-top: 450px;
-    margin-left: 34px;
+    margin-top: 35%;
 }
 
 .contact-information h2 {
-    margin-left: 50px;
+    text-align: center;
     font-weight: bold;
     color: white;
     text-decoration: underline;
@@ -52,7 +51,13 @@ nav ul li a {
 }
 
 .contact-information img  {
-    width: 25px;
-    height: 25px;
-    margin-right: 16px;
+    width: 10%;
+    height: 10%;
+    margin-right: 10px;
+}
+
+@media only screen and (min-width: 1025px) {
+    aside {
+        display: flex;
+    }
 }

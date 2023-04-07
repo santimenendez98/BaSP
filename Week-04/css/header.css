@@ -2,23 +2,23 @@
 
 header {
     position: fixed;
-    display: flex;
     background-color: var(--primary-color);
     width: 100%;
-    z-index: 1;
-    justify-content: space-between;
+    z-index: 99;
 }
 
-header img {
-    padding: 30px;
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 .hamburguer-menu {
-    visibility: collapse;
+    display: block;
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 1025px) {
     .hamburguer-menu{
-        visibility: hidden;
+        display: none;
     }
 }
