@@ -1,41 +1,31 @@
-/* Main */
 
-main {
-    padding-top: 104px;
-    padding-left: 313px;
-}
 /* First main landing page article */
 
+.article-title {
+    padding-top: 120px;
+}
+
 .article-title article {
-    display: inline-block;
-    width: 400px;
     text-align: center;
-    vertical-align: top;
-    margin-top: 150px;
-    margin-left: 140px;
 }
 
 .article-title h1 {
     color: var(--primary-color);
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .article-title h2 {
+    display: none;
     color: #49A37B;
     font-weight: 23px;
     text-transform: uppercase;
 }
 
-.article-title p {
-    margin-top: 34px;
-}
-
 .article-title img {
-    margin-top: 65px;
-    margin-left: 61px;
-    width: 500px;
-    height: 315px;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
 }
 
 /* Features */
@@ -44,18 +34,20 @@ main {
     margin-top: 65px;
 }
 
-.features article {
-    display: inline-block;
-    width: 430px;
-    margin-top: 58px;
-    margin-left: 130px;
+.article-features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.features img {
-    margin-left: 2px;
+.article-features article {
+    padding-top: 20px;
 }
 
-.features h3 {
+
+.article-features h3 {
     display: inline-block;
     margin-left: 15px;
     font-size: 24px;
@@ -63,178 +55,176 @@ main {
     color: var(--primary-color);
 }
 
-.features p {
-    margin-top: 34px;
-    padding: 10px;
-    margin-left: 55px;
-    width: 350px;
+.article-features p {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.article-features img{
+    width: 5%;
+    height: 5%
 }
 
 /* About Mega Rocket */
 
 .about-mega-rocket {
-    margin-left: 130px;
     margin-top: 50px;
 }
 
-.about-mega-rocket h2 {
-    margin-right: 120px;
+.about-mega-rocket-articles {
+    display: flex;
+    flex-direction: column;
 }
-
 .about-mega-rocket-article-1 p{
-    display: inline-block;
-    width: 500px;
-    vertical-align: top;
-    margin-top: 70px;
+    width: 100%;
 }
 
 .about-mega-rocket-article-1 img {
     margin-top: 61px;
-    width: 453px;
-    height: 248px;
-    margin-right: 20px;
+    width: 100%;
+    height: 100%;
 }
 
+.btn-articles {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-articles button{
+    padding: 10px 20px 10px 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.about-mega-rocket-article-2 {
+    display: flex;
+    flex-direction: column-reverse;
+}
 .about-mega-rocket-article-2 p{
-    display: inline-block;
-    width: 500px;
-    vertical-align: top;
-    margin-top: 10px;
+    width: 100%;
 }
 
 .about-mega-rocket-article-2 img {
-    margin-left: 20px;
-    width: 453px;
-    height: 248px;
+    width: 100%;
+    height: 100%;
 }
 
 /* Get in touch */
 
-.get-in-touch input {
-    margin: 10px 0 10px 0;
-    width: 260px;
-    height: 37px;
-    border-radius: 4px;
-    border: 1px solid var(--primary-color);
+.get-in-touch-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
 }
 
-.first-part-form {
-    margin-left: 200px;
-    float: left;
-    width: 400px;
+.get-in-touch-form label {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px 10px;
+    font-size: 14px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.get-in-touch-form input {
+    width: 100%;
+    padding: 10px 0 10px 0
+}
+
+.get-in-touch-form select {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    color: var(--primary-color);
+}
+
+.get-in-touch-form textarea {
+    width: 100%;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+}
+
+.btn-submit-form {
+    width: 20%;
+    color: var(--primary-color);
 }
 
 .btn-submit-form input {
-    width: 123px;
-    height: 47px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
     background-color: var(--secundary-color);
-    color: var(--primary-color);
-    font-weight: bold;
-    border: 0;
-}
-
-.second-part-form {
-    margin-top: 61px;
-}
-
-.second-part-form select {
-    margin: 10px 0 10px 0;
-    width: 400px;
-    height: 37px;
-    border-radius: 4px;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-}
-
-.second-part-form textarea {
-    margin: 10px 0 10px 0;
-    width: 400px;
-    border-radius: 4px;
-    border: 1px solid var(--primary-color);
-    resize: none;
-}
-
-.get-in-touch label {
-    display: block;
-    color: var(--primary-color);
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 16px;
+    font-size: 12px;
+    text-align: center;
 }
 
 /* Gym Activity */
 
 .gym-activity {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .activity-list {
-    display: inline-block;
-    width: 200px;
-    vertical-align: top;
-    margin-top: 55px;
-    margin-right: 50px;
-    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 20px 100px 10px 100px
+}
+
+.activity-list ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .activity-list ul li {
     padding: 10px;
     color: var(--primary-color);
     font-weight: bold;
-    font-size: 24px;
-    list-style: inside;
-}
-
-.gym-activity figure {
-    display: inline-block;
+    font-size: 14px;
 }
 
 .gym-activity figure img {
-    margin-top: 62px;
-    width: 550px;
+    margin-top: 30px;
+    width: 100%;
 }
 
 /* Membership */
 
 .membership table {
+    display: flex;
+    justify-content: center;
     margin-top: 62px;
-    margin-left: 180px;
 }
 
-.membership-column {
-    background-color: #D9D9D9;
-}
-
-.membership-column-th {
-    padding: 20px;
-    width: 100px;
-    color: #373867;
-    font-weight: bold
-}
-
-.column-bonus {
-    width: 300px;
-}
-
-.bonus-membership-white td {
-    padding: 20px;
-    width: 150px;
-    color: #373867;
-    font-weight: bold;
-}
-
-.bonus-membership-white img {
-    margin-left: 66px;
+.bonus-membership-grey {
+    background: #D9D9D9;
 }
 
 .bonus-membership-grey td {
-    padding: 20px;
-    width: 150px;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
     color: var(--primary-color);
     font-weight: bold;
-    background-color: #D9D9D9;
 }
 
-.bonus-membership-grey img {
-    margin-left: 66px;
+.bonus-membership-grey th {
+    padding: 10px;
+    font-size: 12px;
+    color: var(--primary-color);
+    font-weight: bold;
 }
+
+.bonus-membership-white td {
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Responsive */
