@@ -9,6 +9,10 @@
     text-align: center;
 }
 
+.article-title p {
+    font-size: 20px;
+}
+
 .article-title h1 {
     color: var(--primary-color);
     font-weight: bold;
@@ -48,11 +52,16 @@
 
 
 .article-features h3 {
-    display: inline-block;
     margin-left: 15px;
-    font-size: 24px;
+    font-size: 14px;
     font-weight: bold;
     color: var(--primary-color);
+}
+
+.title-article-features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .article-features p {
@@ -61,8 +70,7 @@
 }
 
 .article-features img{
-    width: 5%;
-    height: 5%
+    width: 8%;
 }
 
 /* About Mega Rocket */
@@ -77,6 +85,7 @@
 }
 .about-mega-rocket-article-1 p{
     width: 100%;
+    font-size: 15px;
 }
 
 .about-mega-rocket-article-1 img {
@@ -105,6 +114,7 @@
 }
 .about-mega-rocket-article-2 p{
     width: 100%;
+    font-size: 15px;
 }
 
 .about-mega-rocket-article-2 img {

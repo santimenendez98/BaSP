@@ -10,7 +10,6 @@ footer {
 }
 
 footer span {
-    display: block;
     padding: 8px;
 }
 
@@ -18,10 +17,12 @@ footer a {
     padding: 10px;
 }
 
+footer img {
+    width: 12%;
+}
+
 footer p {
-    display: block;
-    padding-bottom: 20px;
-    margin-top: 5px;
+    margin-bottom: 5px;
     color: white;
     font-size: 14px;
 }
