@@ -242,7 +242,6 @@
 @media only screen and (min-width: 601px) {
 
     /* Main article */
-
     .article-title {
         display: flex;
         justify-content: space-around;
@@ -405,3 +404,70 @@
     }
 
 }
+
+@media only screen and (min-width: 601px) {
+
+    /* Features */
+
+    .article-1-features article {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .article-2-features article {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .article-1-features h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .article-2-features h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .article-1-features p {
+        padding-left: 50px;
+        font-size: 20px;
+    }
+
+    .article-2-features p {
+        padding-left: 50px;
+        font-size: 20px;
+    }
+
+    /* About Mega Rocket */
+
+    .about-mega-rocket p {
+        font-size: 20px;
+    }
+
+    /* Gym Activity */
+
+    .activity-list {
+        width: 50%;
+    }
+
+    .gym-activity figure {
+        width: 50%;
+    }
+
+    /* Membership */
+
+    .bonus-membership-grey td {
+        padding: 20px 70px;
+    }
+
+    .bonus-membership-grey th {
+        padding: 20px;
+    }
+
+    .bonus-membership-white td {
+        padding: 20px 70px;
+    }
+
+}
+

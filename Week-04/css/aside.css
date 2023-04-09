@@ -1,15 +1,17 @@
 
-/* Aside */
-
 aside {
     display: none;
-    justify-content: space-between;
-    flex-direction: column;
+}
+
+@media only screen and (min-width: 1024px) {
+    /* Aside */
+aside {
+    display: block;
     position: fixed;
     padding: 20px;
     background-color: var(--secundary-color);
     height: 100%;
-    width: 25%;
+    width: 313px;
 }
 
 nav {
@@ -31,7 +33,7 @@ nav ul li a {
 }
 
 .contact-information {
-    margin-top: 35%;
+    margin-top: 45%;
 }
 
 .contact-information h2 {
@@ -55,9 +57,4 @@ nav ul li a {
     height: 10%;
     margin-right: 10px;
 }
-
-@media only screen and (min-width: 1025px) {
-    aside {
-        display: flex;
-    }
 }
