@@ -6,7 +6,9 @@ aside {
 @media only screen and (min-width: 1024px) {
     /* Aside */
 aside {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: fixed;
     padding: 20px;
     background-color: var(--secundary-color);
@@ -33,7 +35,6 @@ nav ul li a {
 }
 
 .contact-information {
-    margin-top: 45%;
 }
 
 .contact-information h2 {
