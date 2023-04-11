@@ -16,6 +16,10 @@ Start designing the landing page based on the figma layout
 
 Styling the landing page with the figma style using pixel perfect
 
+## Week 04
+
+This week I was working on the responsive design of the landing page, this page now adapts for mobile, tablet and desktop. The figma styles are used for different screens.
+
 ## Authors
 
 - Santiago Menendez
