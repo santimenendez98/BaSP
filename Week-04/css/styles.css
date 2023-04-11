@@ -31,7 +31,7 @@ main {
 .titles-articles {
     display: block;
     color: var(--primary-color);
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: bold;
     text-decoration: underline var(--secundary-color);
     text-align: center;
