@@ -20,6 +20,8 @@ Styling the landing page with the figma style using pixel perfect
 
 This week I was working on the responsive design of the landing page, this page now adapts for mobile, tablet and desktop. The figma styles are used for different screens.
 
+Preview the project https://santimenendez98.github.io/BaSP-M2023/Week-04/index.html
+
 ## Authors
 
 - Santiago Menendez
