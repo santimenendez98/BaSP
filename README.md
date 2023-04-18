@@ -22,6 +22,10 @@ This week I was working on the responsive design of the landing page, this page 
 
 Preview the project https://santimenendez98.github.io/BaSP-M2023/Week-04/index.html
 
+## Week 05
+
+This week I was working in exercises about JavaScript, these exercise were about variables and operators, strings, condition if-else, loop for, arrays and function. In the exercises I was worked on the functionality of the propertis but the most practiced is the logic about this lenguage.
+
 ## Authors
 
 - Santiago Menendez
