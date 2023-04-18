@@ -1,6 +1,6 @@
 // Ejercicio 1
 
-var word = 'estudiando javascript';
+var word = 'studying javascript';
 
 var wordUpperCase = word.toUpperCase();
 
@@ -32,7 +32,7 @@ console.log('Ejercicio 2e =', spaceWord)
 
 // Ejercicio 6
 
-var firstWord = word.indexOf('e')
+var firstWord = word.indexOf('s')
 
 var secondWord = word.indexOf('j')
 
