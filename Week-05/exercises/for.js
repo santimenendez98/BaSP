@@ -1,6 +1,6 @@
 // Ejercicio 1
 
-var array = ['curso', 'programacion','computadora','javascript','monitor'];
+var array = ['course', 'programation','computer','javascript','mouse'];
 
 for(var i = 0; i < array.length; i++){
     alert(array[i])
