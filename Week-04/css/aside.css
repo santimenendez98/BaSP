@@ -1,11 +1,10 @@
-
 aside {
-    display: none;
+  display: none;
 }
 
 @media only screen and (min-width: 1024px) {
-    /* Aside */
-aside {
+  /* Aside */
+  aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -14,45 +13,49 @@ aside {
     background-color: var(--secundary-color);
     height: 100%;
     width: 313px;
-}
+  }
 
-nav {
+  nav {
     text-align: center;
     margin-top: 35%;
-}
+  }
 
-nav ul li {
+  nav ul li {
     margin-top: 16px;
     padding: 10px;
     border: 1px solid var(--primary-color);
     border-radius: 5px;
     background-color: white;
-}
+  }
 
-nav ul li a {
+  nav ul li a {
     text-decoration: none;
     font-weight: bold;
-}
+  }
 
-.contact-information h2 {
+  .contact-information h2 {
     text-align: center;
     font-weight: bold;
     color: white;
     text-decoration: underline;
-}
+  }
 
-.contact-information ul {
+  .contact-information ul {
     margin-top: 40px;
-}
+  }
 
-.contact-information ul li {
+  .contact-information ul li {
+    display: flex;
+    align-items: center;
     margin-top: 23px;
     color: var(--primary-color);
-}
+  }
 
-.contact-information img  {
-    width: 10%;
-    height: 10%;
+  .contact-information a {
+    text-decoration: none;
+  }
+
+  .contact-information img {
     margin-right: 10px;
-}
+  }
 }
