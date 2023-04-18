@@ -13,17 +13,17 @@ if(randomNum >= 0.5){
 var age = 33;
 
 if(age < 2){
-    console.log('Ejercicio 4b =', 'Bebe')
+    console.log('Ejercicio 4b =', 'Baby')
 } else if(age >= 2 && age <= 12){
-    console.log('Ejercicio 4b =', 'Niño')
+    console.log('Ejercicio 4b =', 'Kid')
 } else if(age >= 13 && age <= 19){
-    console.log('Ejercicio 4b =', 'Adolescente')
+    console.log('Ejercicio 4b =', 'Teen')
 } else if(age >= 20 && age <= 30){
-    console.log('Ejercicio 4b =', 'Joven')
+    console.log('Ejercicio 4b =', 'Young')
 } else if(age >= 31 && age <= 60){
-    console.log('Ejercicio 4b =', 'Adulto')
+    console.log('Ejercicio 4b =', 'Adult')
 } else if(age >= 61 && age <= 75){
-    console.log('Ejercicio 4b =', 'Adulto mayor')
+    console.log('Ejercicio 4b =', 'Elderly')
 } else if(age > 75){
-    console.log('Ejercicio 4b =', 'Anciano`')
+    console.log('Ejercicio 4b =', 'Old Man`')
 };
