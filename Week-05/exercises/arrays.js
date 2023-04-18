@@ -1,12 +1,12 @@
 // Ejercicio 1
 
-var month = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 console.log ('Ejercicio 3a =', month[5] , month[11]);
 
 // Ejercicio 2
 
-var monthExercise3B = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+var monthExercise3B = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 console.log('Ejercicio 3b =', monthExercise3B.sort());
 
@@ -36,6 +36,6 @@ console.log('Ejercicio 3f =', monthString)
 
 // Ejercicio 7
 
-var monthExercise3G = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+var monthExercise3G = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 console.log('Ejercicio 3g =', monthExercise3G.slice(4, 11))
