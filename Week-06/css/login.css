@@ -1,10 +1,40 @@
+/* Style Error */
+
+.alert-mensage {
+  padding: 10px;
+  border: 2px solid red;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+
+.input-error {
+  border: 2px solid red;
+  color: red;
+}
+
+.input-correct {
+  border: 2px solid greenyellow;
+  color: greenyellow;
+}
+
+.btn-submit-disabled {
+  padding: 15px 30px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--secundary-color);
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* Styles */
+
 .form-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  top: 25%;
-  left: 25%;
+  margin-top: 100px;
+  padding: 20px;
   background-color: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -21,10 +51,9 @@
 .form-data {
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
 }
 
-.form label {
+#form label {
   padding: 25px 0 5px 0;
   color: var(--primary-color);
   font-weight: 600;
@@ -32,15 +61,12 @@
 }
 
 .form-data input {
-  width: 80%;
+  width: 100%;
   padding: 10px 20px 10px 10px;
-  outline: none;
-  border: 1px solid var(--primary-color);
   border-radius: 4px;
 }
 
 .checkbox-rembembe-me {
-  margin-left: 70px;
   margin-top: 10px;
 }
 
@@ -59,7 +85,7 @@
   font-size: 0.9rem;
 }
 
-.btn-submit {
+#btn-submit {
   padding: 15px 30px;
   margin-top: 20px;
   border: none;
@@ -70,4 +96,23 @@
   font-weight: bold;
   color: var(--primary-color);
   cursor: pointer;
+}
+
+/* Tablet Responsive */
+
+@media only screen and (min-width: 601px) {
+  .container-main {
+    display: flex;
+    justify-content: center;
+  }
+  .form-container {
+    width: 500px;
+    max-width: 500px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container-main {
+    flex-direction: row-reverse;
+  }
 }
