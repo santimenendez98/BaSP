@@ -1,6 +1,6 @@
 // Variables
 
-var inputs = document.querySelectorAll("input");
+var inputs = document.querySelectorAll(".input");
 var inputName = document.getElementById("name");
 var validation = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 var validationAlphanumeric = /[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g;
@@ -16,7 +16,7 @@ var inputAddress = document.getElementById("address");
 var inputCity = document.getElementById("city");
 var inputPostalCode = document.getElementById("postal-code");
 var inputSubmit = document.getElementById("submit");
-var formRegistration = document.getElementsByClassName("form-registration");
+var formRegistration = document.getElementById("form-registration");
 
 //Event Listeners
 
@@ -42,10 +42,101 @@ inputPassword.addEventListener("blur", validationPassword);
 inputPassword.addEventListener("focus", quitErrorMessage);
 repeatPassword.addEventListener("blur", validationRepeatPassword);
 repeatPassword.addEventListener("focus", quitErrorMessage);
+inputSubmit.addEventListener("click", sendForm);
+formRegistration.addEventListener("submit", function (event) {
+  if (validateForm()) {
+    sendForm();
+  } else {
+    event.preventDefault();
+    alert("Some date is wrong");
+  }
+});
 
 //Functions
 
 // Input requeriment
+inputs.forEach((element) => {
+  {
+    element.required = true;
+  }
+});
+
+function sendForm() {
+  validateForm();
+}
+
+function validateForm() {
+  var validName = inputName.classList.contains("input-correct");
+  var validSurname = inputSurname.classList.contains("input-correct");
+  var validDni = inputDni.classList.contains("input-correct");
+  var validBirthday = inputBirthday.classList.contains("input-correct");
+  var validPhone = inputPhone.classList.contains("input-correct");
+  var validAdress = inputAddress.classList.contains("input-correct");
+  var validCity = inputCity.classList.contains("input-correct");
+  var validPostalCode = inputPostalCode.classList.contains("input-correct");
+  var validEmail = inputEmail.classList.contains("input-correct");
+  var validPassword = inputPassword.classList.contains("input-correct");
+  var validRepeatPassword = repeatPassword.classList.contains("input-correct");
+  if (
+    validName &&
+    validSurname &&
+    validDni &&
+    validBirthday &&
+    validPhone &&
+    validAdress &&
+    validCity &&
+    validPostalCode &&
+    validEmail &&
+    validPassword &&
+    validRepeatPassword
+  ) {
+    var userAlert =
+      "Name: " +
+      inputName.value +
+      "\n" +
+      "Surname: " +
+      inputSurname.value +
+      "\n" +
+      "DNI: " +
+      inputDni.value +
+      "\n" +
+      "Birthday: " +
+      inputBirthday.value +
+      "\n" +
+      "Phone: " +
+      inputPhone.value +
+      "\n" +
+      "Address: " +
+      inputAddress.value +
+      "\n" +
+      "City: " +
+      inputCity.value +
+      "\n" +
+      "Postal Code: " +
+      inputPostalCode.value +
+      "\n" +
+      "Email: " +
+      inputEmail.value +
+      "\n" +
+      "Password: " +
+      inputPassword.value;
+    alert(userAlert);
+
+    //Vaciar form
+
+    inputName.value = "";
+    inputSurname.value = "";
+    inputDni.value = "";
+    inputBirthday.value = "";
+    inputPhone.value = "";
+    inputAddress.value = "";
+    inputCity.value = "";
+    inputPostalCode.value = "";
+    inputEmail.value = "";
+    inputPassword.value = "";
+    repeatPassword.value = "";
+  }
+}
 
 function validateName(event) {
   var text = event.target.value;
