@@ -26,6 +26,12 @@ Preview the project https://santimenendez98.github.io/BaSP-M2023/Week-04/index.h
 
 This week I was working in exercises about JavaScript, these exercise were about variables and operators, strings, condition if-else, loop for, arrays and function. In the exercises I was worked on the functionality of the propertis but the most practiced is the logic about this lenguage.
 
+## Week 06
+
+This week I created the registration and login pages, on these pages I created styles based on figma, then finished styles and created logic around the requirements for both forms.
+
+Preview the project https://santimenendez98.github.io/BaSP-M2023/Week-06/views/index.html
+
 ## Authors
 
 - Santiago Menendez
