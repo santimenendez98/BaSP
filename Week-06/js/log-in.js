@@ -1,5 +1,6 @@
 // Variables
 
+var inputs = document.querySelectorAll(".input");
 var form = document.getElementById("form");
 var emailForm = document.getElementById("email");
 var passwordForm = document.getElementById("password");
@@ -13,75 +14,73 @@ form.addEventListener("submit", btnSubmit);
 emailForm.addEventListener("blur", validationEmail);
 emailForm.addEventListener("focus", refreshForm);
 passwordForm.addEventListener("blur", validationPassword);
-passwordForm.addEventListener("focus", refreshFormPassword);
+passwordForm.addEventListener("focus", refreshForm);
 // Funciones
+
+inputs.forEach((element) => {
+  {
+    element.required = true;
+  }
+});
 
 function validationEmail(event) {
   var email = event.target.value;
-  var errorMensage = '<div class="mensage-error"><p>Invalid Email</p></div>';
+  var spanElement = document.createElement("span");
+  spanElement.classList.add("alert-message");
+  emailForm.insertAdjacentElement("afterend", spanElement);
   if (validation.test(email)) {
     emailForm.classList.remove("input-error");
     emailForm.classList.add("input-correct");
+    spanElement.remove();
   } else {
     emailForm.classList.remove("input-correct");
     emailForm.classList.add("input-error");
-    passwordForm.appendChild(errorMensage);
-    form.insertAdjacentHTML("afterbegin", errorMensage);
+    spanElement.textContent = "The email format is wrong";
   }
 }
 
 function refreshForm() {
-  var error = document.getElementsByClassName("input-error");
-  if (error) {
-    emailForm.classList.remove("input-error");
+  var messageError = document.querySelector(".alert-message");
+  if (messageError) {
+    messageError.remove();
+    messageError.classList.remove("input-error");
   }
 }
 
 function validationPassword(event) {
   var passwordValue = event.target.value;
+  var spanElement = document.createElement("span");
+  spanElement.classList.add("alert-message");
+  passwordForm.insertAdjacentElement("afterend", spanElement);
   if (passwordValue.length < 8) {
     passwordForm.classList.add("input-error");
     passwordForm.classList.remove("input-correct");
+    spanElement.textContent = "The minimum number of characters is 8";
   } else if (password.test(passwordValue)) {
     passwordForm.classList.add("input-error");
     passwordForm.classList.remove("input-correct");
+    spanElement.textContent = "Password format is wrong";
   } else {
     passwordForm.classList.add("input-correct");
-  }
-}
-
-function refreshFormPassword() {
-  var error = document.getElementsByClassName("input-error");
-  if (error) {
-    passwordForm.classList.remove("input-error");
+    spanElement.remove();
   }
 }
 
 function btnSubmit(event) {
-  event.preventDefault();
-  var alertError = document.createElement("div");
   if (
     emailForm.classList.contains("input-correct") &&
     passwordForm.classList.contains("input-correct")
   ) {
-    var obj = {
-      email: "",
-      password: "",
-    };
-    obj.email = emailForm.value;
-    obj.password = passwordForm.value;
-    var mensaje = "User: " + obj.email + "\n" + "Password: " + obj.password;
+    var mensaje =
+      "User: " + emailForm.value + "\n" + "Password: " + passwordForm.value;
     alert(mensaje);
-  } else {
-    alert("Username or Password are incorrect");
-    alertError.classList.add("alert-mensage");
-    alertError.textContent = "Username or Password are incorrect";
-    document
-      .querySelector(".form-container")
-      .insertBefore(alertError, document.querySelector(".title-login"));
 
-    setTimeout(() => {
-      alertError.remove();
-    }, 2000);
+    //Vacias campos
+
+    emailForm = "";
+    passwordForm = "";
+  } else {
+    event.preventDefault();
+    alert("Username or Password are incorrect");
   }
 }
