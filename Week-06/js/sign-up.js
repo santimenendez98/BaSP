@@ -3,8 +3,6 @@
 var inputs = document.querySelectorAll(".input");
 var inputName = document.getElementById("name");
 var validation = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-var validationAlphanumeric = /[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g;
-var verificationPassword = /^[a-zA-Z0-9]+[^@#!]+$/;
 var inputEmail = document.getElementById("email");
 var inputPassword = document.getElementById("password");
 var inputSurname = document.getElementById("surname");
@@ -13,7 +11,7 @@ var repeatPassword = document.getElementById("repeat-password");
 var inputDni = document.getElementById("dni");
 var inputBirthday = document.getElementById("birthday");
 var inputAddress = document.getElementById("address");
-var inputCity = document.getElementById("city");
+var inputLocation = document.getElementById("location");
 var inputPostalCode = document.getElementById("postal-code");
 var inputSubmit = document.getElementById("submit");
 var formRegistration = document.getElementById("form-registration");
@@ -32,8 +30,8 @@ inputPhone.addEventListener("blur", validationPhone);
 inputPhone.addEventListener("focus", quitErrorMessage);
 inputAddress.addEventListener("blur", validationAddress);
 inputAddress.addEventListener("focus", quitErrorMessage);
-inputCity.addEventListener("blur", validationCity);
-inputCity.addEventListener("focus", quitErrorMessage);
+inputLocation.addEventListener("blur", validationLocation);
+inputLocation.addEventListener("focus", quitErrorMessage);
 inputPostalCode.addEventListener("blur", validationPostalCode);
 inputPostalCode.addEventListener("focus", quitErrorMessage);
 inputEmail.addEventListener("blur", validationEmail);
@@ -72,7 +70,7 @@ function validateForm() {
   var validBirthday = inputBirthday.classList.contains("input-correct");
   var validPhone = inputPhone.classList.contains("input-correct");
   var validAdress = inputAddress.classList.contains("input-correct");
-  var validCity = inputCity.classList.contains("input-correct");
+  var validLocation = inputLocation.classList.contains("input-correct");
   var validPostalCode = inputPostalCode.classList.contains("input-correct");
   var validEmail = inputEmail.classList.contains("input-correct");
   var validPassword = inputPassword.classList.contains("input-correct");
@@ -84,7 +82,7 @@ function validateForm() {
     validBirthday &&
     validPhone &&
     validAdress &&
-    validCity &&
+    validLocation &&
     validPostalCode &&
     validEmail &&
     validPassword &&
@@ -110,7 +108,7 @@ function validateForm() {
       inputAddress.value +
       "\n" +
       "City: " +
-      inputCity.value +
+      inputLocation.value +
       "\n" +
       "Postal Code: " +
       inputPostalCode.value +
@@ -130,12 +128,30 @@ function validateForm() {
     inputBirthday.value = "";
     inputPhone.value = "";
     inputAddress.value = "";
-    inputCity.value = "";
+    inputLocation.value = "";
     inputPostalCode.value = "";
     inputEmail.value = "";
     inputPassword.value = "";
     repeatPassword.value = "";
+
+    inputs.forEach((element) => {
+      element.classList.remove("input-correct");
+    });
   }
+}
+
+function containsLettersAndNumbersLocation(value) {
+  for (var i = 0; i < value.length; i++) {
+    var charCode = value.charCodeAt(i);
+    if (
+      !(charCode === 32) &&
+      !(charCode >= 48 && charCode <= 57) && // números
+      !(charCode >= 97 && charCode <= 122) // letras minúsculas
+    ) {
+      return false;
+    }
+  }
+  return true;
 }
 
 function validateName(event) {
@@ -287,22 +303,22 @@ function validationAddress(event) {
   }
 }
 
-function validationCity(event) {
-  var city = event.target.value;
+function validationLocation(event) {
+  var location = event.target.value;
   var spanElement = document.createElement("span");
   spanElement.classList.add("alert-message");
-  inputCity.insertAdjacentElement("afterend", spanElement);
-  if (validationAlphanumeric.test(city)) {
-    inputCity.classList.remove("input-correct");
-    inputCity.classList.add("input-error");
+  inputLocation.insertAdjacentElement("afterend", spanElement);
+  if (!containsLettersAndNumbersLocation(location)) {
+    inputLocation.classList.remove("input-correct");
+    inputLocation.classList.add("input-error");
     spanElement.textContent = "Characters must be alphanumeric";
-  } else if (city.length < 3) {
-    inputCity.classList.remove("input-correct");
-    inputCity.classList.add("input-error");
+  } else if (location.length < 3) {
+    inputLocation.classList.remove("input-correct");
+    inputLocation.classList.add("input-error");
     spanElement.textContent = "The minimum number of characters is 3";
   } else {
-    inputCity.classList.remove("input-error");
-    inputCity.classList.add("input-correct");
+    inputLocation.classList.remove("input-error");
+    inputLocation.classList.add("input-correct");
     spanElement.remove();
   }
 }
@@ -345,17 +361,31 @@ function validationEmail(event) {
 
 function validationPassword(event) {
   var passwordValue = event.target.value;
+  var upperCase = false;
+  var lowerCase = false;
+  var number = false;
   var spanElement = document.createElement("span");
   spanElement.classList.add("alert-message");
   inputPassword.insertAdjacentElement("afterend", spanElement);
-  if (passwordValue < 8) {
+  for (var i = 0; i < passwordValue.length; i++) {
+    var charCode = passwordValue.charAt(i);
+    if (charCode >= "0" && charCode <= "9") {
+      number = true;
+    } else if (charCode === charCode.toUpperCase()) {
+      upperCase = true;
+    } else if (charCode === charCode.toLowerCase()) {
+      lowerCase = true;
+    }
+  }
+  if (!number || !upperCase || !lowerCase) {
+    inputPassword.classList.remove("input-correct");
+    inputPassword.classList.add("input-error");
+    spanElement.textContent =
+      "This field needs a capital letter, a lower case letter and a number";
+  } else if (passwordValue < 8) {
     inputPassword.classList.remove("input-correct");
     inputPassword.classList.add("input-error");
     spanElement.textContent = "The minimum number of characters is 5";
-  } else if (!verificationPassword.test(passwordValue)) {
-    inputPassword.classList.remove("input-correct");
-    inputPassword.classList.add("input-error");
-    spanElement.textContent = "The password must be alphanumeric";
   } else {
     inputPassword.classList.remove("input-error");
     inputPassword.classList.add("input-correct");

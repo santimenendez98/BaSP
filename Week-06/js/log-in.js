@@ -5,16 +5,17 @@ var form = document.getElementById("form");
 var emailForm = document.getElementById("email");
 var passwordForm = document.getElementById("password");
 var validation = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-var password = /[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g;
 var submit = document.getElementsByClassName("btn-submit").disabled;
 var headerLogIn = document.getElementsByClassName("title-login");
 
 // Event Listeners
+
 form.addEventListener("submit", btnSubmit);
 emailForm.addEventListener("blur", validationEmail);
 emailForm.addEventListener("focus", refreshForm);
 passwordForm.addEventListener("blur", validationPassword);
 passwordForm.addEventListener("focus", refreshForm);
+
 // Funciones
 
 inputs.forEach((element) => {
@@ -49,18 +50,33 @@ function refreshForm() {
 
 function validationPassword(event) {
   var passwordValue = event.target.value;
+  var upperCase = false;
+  var lowerCase = false;
+  var number = false;
   var spanElement = document.createElement("span");
   spanElement.classList.add("alert-message");
   passwordForm.insertAdjacentElement("afterend", spanElement);
-  if (passwordValue.length < 8) {
-    passwordForm.classList.add("input-error");
+  for (var i = 0; i < passwordValue.length; i++) {
+    var charCode = passwordValue.charAt(i);
+    if (charCode >= "0" && charCode <= "9") {
+      number = true;
+    } else if (charCode === charCode.toUpperCase()) {
+      upperCase = true;
+    } else if (charCode === charCode.toLowerCase()) {
+      lowerCase = true;
+    }
+  }
+  if (!number || !upperCase || !lowerCase) {
     passwordForm.classList.remove("input-correct");
-    spanElement.textContent = "The minimum number of characters is 8";
-  } else if (password.test(passwordValue)) {
     passwordForm.classList.add("input-error");
+    spanElement.textContent =
+      "This field needs a capital letter, a lower case letter and a number";
+  } else if (passwordValue < 8) {
     passwordForm.classList.remove("input-correct");
-    spanElement.textContent = "Password format is wrong";
+    passwordForm.classList.add("input-error");
+    spanElement.textContent = "The minimum number of characters is 5";
   } else {
+    passwordForm.classList.remove("input-error");
     passwordForm.classList.add("input-correct");
     spanElement.remove();
   }
