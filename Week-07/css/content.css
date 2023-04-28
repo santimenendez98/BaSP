@@ -1,0 +1,503 @@
+/* First main landing page article */
+
+.article-title {
+  padding-top: 120px;
+}
+
+.article-title article {
+  text-align: center;
+}
+
+.article-title p {
+  font-size: 1.3rem;
+}
+
+.article-title h1 {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.article-title h2 {
+  display: none;
+  color: #49a37b;
+  font-weight: 2rem;
+  text-transform: uppercase;
+}
+
+.article-title img {
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Features */
+
+.features {
+  margin-top: 65px;
+}
+
+.article-features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.article-features article {
+  padding-top: 20px;
+}
+
+.article-features h3 {
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.title-article-features {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.article-features p {
+  text-align: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.article-features img {
+  width: 8%;
+}
+
+/* About Mega Rocket */
+
+.about-mega-rocket {
+  margin-top: 50px;
+}
+
+.about-mega-rocket-articles {
+  display: flex;
+  flex-direction: column;
+}
+.about-mega-rocket-article-1 p {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.about-mega-rocket-article-1 img {
+  margin-top: 61px;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-articles {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-articles button {
+  padding: 10px 20px 10px 20px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  color: var(--primary-color);
+  margin-bottom: 40px;
+}
+
+.about-mega-rocket-article-2 {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.about-mega-rocket-article-2 p {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.about-mega-rocket-article-2 img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Get in touch */
+
+.first-part-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.get-in-touch-form label {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.first-part-form input:not(input[type="submit"]) {
+  margin: 10px 0 10px;
+  width: 100%;
+  padding: 10px 0 10px 0;
+}
+
+.btn-desktop-form {
+  display: none;
+}
+
+.get-in-touch-form select {
+  margin: 10px 0 10px;
+  width: 100%;
+  padding: 10px 0 10px 0;
+  color: var(--primary-color);
+}
+
+.get-in-touch-form textarea {
+  margin: 10px 0 10px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  resize: none;
+}
+
+.btn-submit-form {
+  display: flex;
+  justify-content: end;
+  color: var(--primary-color);
+}
+
+.btn-submit-form input {
+  padding: 15px 30px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--secundary-color);
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Gym Activity */
+
+.gym-activity {
+  margin-top: 50px;
+}
+
+.activity-list {
+  align-items: center;
+  margin-top: 30px;
+  padding: 20px 100px 10px 100px;
+}
+
+.activity-list ul {
+  display: flex;
+  justify-content: center;
+}
+
+.activity-list ul li {
+  padding: 10px;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.gym-activity figure img {
+  margin-top: 30px;
+  width: 100%;
+}
+
+/* Membership */
+
+.membership table {
+  display: flex;
+  justify-content: center;
+  margin-top: 62px;
+}
+
+.bonus-membership-grey {
+  background: #d9d9d9;
+}
+
+.bonus-membership-grey td {
+  padding: 10px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.bonus-membership-grey th {
+  padding: 10px;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.bonus-membership-white td {
+  padding: 10px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+/* Tablet Responsive */
+
+@media only screen and (min-width: 601px) {
+  /* Main article */
+  .article-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .article-title article {
+    width: 60%;
+    margin-right: 20px;
+  }
+
+  .article-title h2 {
+    display: block;
+    padding: 10px 0 10px;
+  }
+
+  .article-title img {
+    width: 40%;
+  }
+
+  /* Features */
+
+  .article-features {
+    padding: 40px;
+  }
+
+  .article-1-features {
+    display: flex;
+  }
+
+  .article-1-features article {
+    width: 50%;
+    margin-right: 50px;
+  }
+
+  .title-article-features {
+    display: flex;
+    justify-content: left;
+  }
+
+  .title-article-features h3 {
+    font-size: 1.1rem;
+  }
+  .article-2-features {
+    display: flex;
+  }
+
+  .article-2-features article {
+    width: 50%;
+    margin-right: 50px;
+  }
+
+  .article-1-features p {
+    margin-left: 30px;
+    width: 100%;
+  }
+
+  .article-2-features p {
+    margin-left: 30px;
+    width: 100%;
+  }
+
+  .btn-articles {
+    display: none;
+  }
+
+  /* About Mega Rocket */
+
+  .about-mega-rocket {
+    padding: 20px;
+  }
+
+  .about-mega-rocket-article-1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .about-mega-rocket-article-1 p {
+    margin-left: 20px;
+    width: 50%;
+    font-size: 0.9rem;
+  }
+
+  .about-mega-rocket-article-1 img {
+    width: 50%;
+  }
+
+  .about-mega-rocket-article-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .about-mega-rocket-article-2 p {
+    margin-right: 20px;
+    width: 50%;
+    font-size: 0.9rem;
+  }
+
+  .about-mega-rocket-article-2 img {
+    width: 50%;
+  }
+
+  /* Get in touch */
+
+  .get-in-touch {
+    padding: 20px;
+  }
+
+  .get-in-touch-form {
+    display: flex;
+  }
+
+  .first-part-form {
+    width: 30%;
+    margin-right: 50px;
+  }
+
+  .second-part-form {
+    width: 70%;
+    padding: 45px;
+  }
+
+  .btn-submit-form {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  /* Gym Activities */
+
+  .article-gym-activity {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+  }
+
+  .gym-activity figure {
+    padding: 0;
+    margin: 0;
+    width: 60%;
+  }
+
+  .gym-activity figure img {
+    max-width: 100%;
+  }
+
+  .activity-list {
+    padding: 0;
+    margin: 0;
+    width: 40%;
+  }
+
+  .activity-list ul {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .activity-list ul li {
+    list-style: disc;
+    font-size: 1.2rem;
+  }
+
+  /* Membership */
+
+  .bonus-membership-grey td {
+    padding: 20px 50px;
+  }
+
+  .bonus-membership-grey th {
+    padding: 20px;
+  }
+
+  .bonus-membership-white td {
+    padding: 20px 50px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* Features */
+
+  .article-1-features article {
+    width: 100%;
+  }
+
+  .article-2-features article {
+    width: 100%;
+  }
+
+  .article-1-features h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .article-2-features h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .article-1-features p {
+    font-size: 1rem;
+  }
+
+  .article-2-features p {
+    font-size: 1rem;
+  }
+
+  /* About Mega Rocket */
+
+  .about-mega-rocket p {
+    font-size: 0.9rem;
+  }
+
+  /* Get in touch */
+
+  .btn-submit-form {
+    display: none;
+  }
+
+  .btn-desktop-form {
+    display: block;
+  }
+
+  .btn-desktop-form input {
+    padding: 15px 30px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--secundary-color);
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /* Gym Activity */
+
+  .activity-list {
+    width: 30%;
+  }
+
+  .gym-activity figure {
+    width: 70%;
+  }
+
+  /* Membership */
+
+  .bonus-membership-grey td {
+    padding: 20px 70px;
+  }
+
+  .bonus-membership-grey th {
+    padding: 20px;
+  }
+
+  .bonus-membership-white td {
+    padding: 20px 70px;
+  }
+}

@@ -1,0 +1,24 @@
+/* Header */
+
+header {
+  position: fixed;
+  background-color: var(--primary-color);
+  width: 100%;
+  z-index: 99;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.hamburguer-menu {
+  display: block;
+}
+
+@media only screen and (min-width: 1025px) {
+  .hamburguer-menu {
+    display: none;
+  }
+}
