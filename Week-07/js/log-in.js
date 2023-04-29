@@ -15,6 +15,7 @@ emailForm.addEventListener("blur", validationEmail);
 emailForm.addEventListener("focus", refreshForm);
 passwordForm.addEventListener("blur", validationPassword);
 passwordForm.addEventListener("focus", refreshForm);
+document.addEventListener("DOMContentLoaded", setFormValue);
 
 // Funciones
 
@@ -82,6 +83,16 @@ function validationPassword(event) {
   }
 }
 
+function setFormValue() {
+  var emailLocalStorage = localStorage.getItem("Email");
+  var passwordLocalStorage = localStorage.getItem("Password");
+
+  if (emailLocalStorage && passwordLocalStorage) {
+    emailForm.value = emailLocalStorage;
+    passwordForm.value = passwordLocalStorage;
+  }
+}
+
 function btnSubmit(event) {
   event.preventDefault();
   var form =
@@ -104,7 +115,7 @@ function btnSubmit(event) {
           localStorage.setItem("Email", emailForm.value);
           localStorage.setItem("Password", passwordForm.value);
         } else if (data.msg) {
-          alert("Error:" + data.msg);
+          alert("Error: " + data.msg);
         } else if (data.errors) {
           var errorMsg = [];
           for (var i = 0; i < data.errors.length; i++) {
@@ -112,8 +123,10 @@ function btnSubmit(event) {
           }
           alert(errorMsg + "\n");
         }
+      })
+      .catch(function (error) {
+        alert("Error: ", error);
       });
-    //Vacias campos
   } else {
     alert("Username or Password are incorrect");
   }
