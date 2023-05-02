@@ -1,8 +1,6 @@
 /* Style Error */
 
 .alert-message {
-  margin-top: 10px;
-  padding: 10px;
   color: red;
   text-align: center;
   font-weight: bold;
@@ -10,18 +8,20 @@
 }
 
 .input-error {
-  border: 2px solid red;
-  color: red;
+  border-color: red;
 }
 
 .input-correct {
   border: 2px solid greenyellow;
-  color: greenyellow;
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
+  margin-top: 100px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .btn-register {
@@ -37,7 +37,6 @@
 
 .register-container input {
   padding: 8px;
-  border-color: 1px var(--primary-color);
   border-radius: 4px;
 }
 

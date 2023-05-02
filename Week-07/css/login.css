@@ -2,20 +2,18 @@
 
 .alert-mensage {
   padding: 10px;
-  border: 2px solid red;
   color: red;
+  border: 2px solid red;
   text-align: center;
   font-weight: bold;
 }
 
 .input-error {
   border: 2px solid red;
-  color: red;
 }
 
 .input-correct {
   border: 2px solid greenyellow;
-  color: greenyellow;
 }
 
 .btn-submit-disabled {
