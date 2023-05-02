@@ -15,6 +15,7 @@ var inputLocation = document.getElementById("location");
 var inputPostalCode = document.getElementById("postal-code");
 var inputSubmit = document.getElementById("submit");
 var formRegistration = document.getElementById("form-registration");
+var formatDate = "";
 
 //Event Listeners
 
@@ -40,30 +41,21 @@ inputPassword.addEventListener("blur", validationPassword);
 inputPassword.addEventListener("focus", quitErrorMessage);
 repeatPassword.addEventListener("blur", validationRepeatPassword);
 repeatPassword.addEventListener("focus", quitErrorMessage);
-inputSubmit.addEventListener("click", sendForm);
-formRegistration.addEventListener("submit", function (event) {
-  if (validateForm()) {
-    sendForm();
-  } else {
-    event.preventDefault();
-    alert("Some date is wrong");
-  }
-});
+formRegistration.addEventListener("submit", validateForm);
+document.addEventListener("DOMContentLoaded", setItemsLocalStorage);
 
 //Functions
 
-// Input requeriment
-inputs.forEach((element) => {
-  {
-    element.required = true;
+function quitErrorMessage() {
+  var alertMessage = document.querySelector(".alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
+    alertMessage.classList.remove("input-error");
   }
-});
-
-function sendForm() {
-  validateForm();
 }
 
-function validateForm() {
+function validateForm(event) {
+  event.preventDefault();
   var validName = inputName.classList.contains("input-correct");
   var validSurname = inputSurname.classList.contains("input-correct");
   var validDni = inputDni.classList.contains("input-correct");
@@ -88,72 +80,122 @@ function validateForm() {
     validPassword &&
     validRepeatPassword
   ) {
-    var userAlert =
-      "Name: " +
+    var form =
+      "https://api-rest-server.vercel.app/signup" +
+      "?name=" +
       inputName.value +
-      "\n" +
-      "Surname: " +
+      "&lastName=" +
       inputSurname.value +
-      "\n" +
-      "DNI: " +
+      "&dni=" +
       inputDni.value +
-      "\n" +
-      "Birthday: " +
-      inputBirthday.value +
-      "\n" +
-      "Phone: " +
+      "&dob=" +
+      changeDateFormat(inputBirthday.value) +
+      "&phone=" +
       inputPhone.value +
-      "\n" +
-      "Address: " +
+      "&address=" +
       inputAddress.value +
-      "\n" +
-      "City: " +
+      "&city=" +
       inputLocation.value +
-      "\n" +
-      "Postal Code: " +
+      "&zip=" +
       inputPostalCode.value +
-      "\n" +
-      "Email: " +
+      "&email=" +
       inputEmail.value +
-      "\n" +
-      "Password: " +
+      "&password=" +
       inputPassword.value;
-    alert(userAlert);
 
-    //Vaciar form
-
-    inputName.value = "";
-    inputSurname.value = "";
-    inputDni.value = "";
-    inputBirthday.value = "";
-    inputPhone.value = "";
-    inputAddress.value = "";
-    inputLocation.value = "";
-    inputPostalCode.value = "";
-    inputEmail.value = "";
-    inputPassword.value = "";
-    repeatPassword.value = "";
-
-    //Vaciar form
-
-    inputs.forEach((element) => {
-      element.classList.remove("input-correct");
-    });
+    fetch(form)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        if (data.success) {
+          alert(
+            data.msg.toUpperCase() +
+              "\n" +
+              "Name: " +
+              inputName.value +
+              "\n" +
+              "Surname: " +
+              inputSurname.value +
+              "\n" +
+              "DNI: " +
+              inputDni.value +
+              "\n" +
+              "Birthday: " +
+              changeDateFormat(inputBirthday.value) +
+              "\n" +
+              "Phone: " +
+              inputPhone.value +
+              "\n" +
+              "Address: " +
+              inputAddress.value +
+              "\n" +
+              "Location: " +
+              inputLocation.value +
+              "\n" +
+              "Postal Code: " +
+              inputPostalCode.value +
+              "\n" +
+              "Email: " +
+              inputEmail.value +
+              "\n" +
+              "Password: " +
+              inputPassword.value
+          );
+          localStorage.setItem("Name", inputName.value);
+          localStorage.setItem("Surname", inputSurname.value);
+          localStorage.setItem("DNI", inputDni.value);
+          localStorage.setItem("Birthday", inputBirthday.value);
+          localStorage.setItem("Phone", inputPhone.value);
+          localStorage.setItem("Address", inputAddress.value);
+          localStorage.setItem("Location", inputLocation.value);
+          localStorage.setItem("Postal Code", inputPostalCode.value);
+          localStorage.setItem("Email", inputEmail.value);
+          localStorage.setItem("Password", inputPassword.value);
+          localStorage.setItem("Repeat Password", repeatPassword.value);
+        }
+      })
+      .catch(function (error) {
+        alert("Error: " + error.msg);
+      });
+  } else {
+    alert("Some data is wrong");
   }
 }
 
-function containsLettersAndNumbersLocation(value) {
-  for (var i = 0; i < value.length; i++) {
-    var charCode = value.charCodeAt(i);
-    if (
-      !(charCode === 32) &&
-      !(charCode >= 48 && charCode <= 57) && // números
-      !(charCode >= 97 && charCode <= 122) // letras minúsculas
-    ) {
-      return false;
+function setItemsLocalStorage() {
+  inputName.value = localStorage.getItem("Name");
+  inputSurname.value = localStorage.getItem("Surname");
+  inputDni.value = localStorage.getItem("DNI");
+  inputBirthday.value = localStorage.getItem("Birthday");
+  inputPhone.value = localStorage.getItem("Phone");
+  inputAddress.value = localStorage.getItem("Address");
+  inputLocation.value = localStorage.getItem("Location");
+  inputPostalCode.value = localStorage.getItem("Postal Code");
+  inputEmail.value = localStorage.getItem("Email");
+  inputPassword.value = localStorage.getItem("Password");
+  repeatPassword.value = localStorage.getItem("Repeat Password");
+  var inputValues = [
+    inputName,
+    inputSurname,
+    inputDni,
+    inputBirthday,
+    inputAddress,
+    inputLocation,
+    inputPhone,
+    inputPostalCode,
+    inputEmail,
+    inputPassword,
+    repeatPassword,
+  ];
+
+  for (var i = 0; i < inputValues.length; i++) {
+    if (inputValues[i].value === "") {
+      inputValues[i].classList.remove("input-correct");
+    } else {
+      inputValues[i].classList.add("input-correct");
     }
   }
-  return true;
 }
 
 function validateName(event) {
@@ -161,6 +203,17 @@ function validateName(event) {
   var spanElement = document.createElement("span");
   spanElement.classList.add("alert-message");
   inputName.insertAdjacentElement("afterend", spanElement);
+  var hasOnlyLetters = false;
+  for (i = 0; i < text.length; i++) {
+    if (
+      (text.charCodeAt(i) >= 65 && text.charCodeAt(i) <= 90) ||
+      (text.charCodeAt(i) >= 97 && text.charCodeAt(i) <= 122)
+    ) {
+      hasOnlyLetters = true;
+    } else {
+      hasOnlyLetters = false;
+    }
+  }
   if (text.length === 0) {
     inputName.classList.remove("input-correct");
     inputName.classList.add("input-error");
@@ -171,7 +224,7 @@ function validateName(event) {
       inputName.classList.remove("input-correct");
       inputName.classList.add("input-error");
       spanElement.textContent = "The minimum number of characters is 3";
-    } else if (!isNaN(text.charAt(i))) {
+    } else if (hasOnlyLetters === false) {
       inputName.classList.remove("input-correct");
       inputName.classList.add("input-error");
       spanElement.textContent = "Name have to be letters";
@@ -184,19 +237,22 @@ function validateName(event) {
   }
 }
 
-function quitErrorMessage() {
-  var alertMessage = document.querySelector(".alert-message");
-  if (alertMessage) {
-    alertMessage.remove();
-    alertMessage.classList.remove("input-error");
-  }
-}
-
 function validationSurname(event) {
   var text = event.target.value;
   var spanElement = document.createElement("span");
   spanElement.classList.add("alert-message");
   inputSurname.insertAdjacentElement("afterend", spanElement);
+  var hasOnlyLetters = false;
+  for (i = 0; i < text.length; i++) {
+    if (
+      (text.charCodeAt(i) >= 65 && text.charCodeAt(i) <= 90) ||
+      (text.charCodeAt(i) >= 97 && text.charCodeAt(i) <= 122)
+    ) {
+      hasOnlyLetters = true;
+    } else {
+      hasOnlyLetters = false;
+    }
+  }
   if (text.length === 0) {
     inputSurname.classList.remove("input-correct");
     inputSurname.classList.add("input-error");
@@ -207,7 +263,7 @@ function validationSurname(event) {
       inputSurname.classList.remove("input-correct");
       inputSurname.classList.add("input-error");
       spanElement.textContent = "The minimum number of characters is 3";
-    } else if (!isNaN(text.charAt(i))) {
+    } else if (hasOnlyLetters === false) {
       inputSurname.classList.remove("input-correct");
       inputSurname.classList.add("input-error");
       spanElement.textContent = "Surname have to be letters";
@@ -224,14 +280,22 @@ function validationDni(event) {
   var spanElement = document.createElement("span");
   spanElement.classList.add("alert-message");
   inputDni.insertAdjacentElement("afterend", spanElement);
-  if (typeof parseInt(dni) !== "number") {
+  var hasOnlyNumber = false;
+  for (var i = 0; i < dni.length; i++) {
+    if (dni.charCodeAt(i) >= 48 && dni.charCodeAt(i) <= 57) {
+      hasOnlyNumber = true;
+    } else {
+      hasOnlyNumber = false;
+    }
+  }
+  if (hasOnlyNumber === false) {
     inputDni.classList.remove("input-correct");
     inputDni.classList.add("input-error");
     spanElement.textContent = "DNI have to be numbers";
-  } else if (dni.length < 7) {
+  } else if (dni.length < 7 || dni.length > 8) {
     inputDni.classList.remove("input-correct");
     inputDni.classList.add("input-error");
-    spanElement.textContent = "The minimum number of characters is 7";
+    spanElement.textContent = "The number of characters is 7 or 8";
   } else {
     inputDni.classList.remove("input-error");
     inputDni.classList.add("input-correct");
@@ -241,19 +305,17 @@ function validationDni(event) {
 
 function validationBirthday(event) {
   var birthday = event.target.value;
-  var birthdayDates = new Date(birthday);
-  var birthdayYear = birthdayDates.getFullYear();
-  var actualyDate = new Date();
-  var actualyYear = actualyDate.getFullYear();
   var spanElement = document.createElement("span");
   spanElement.classList.add("alert-message");
   inputBirthday.insertAdjacentElement("afterend", spanElement);
-  console.log(birthdayDates);
   if (birthday === "") {
     inputBirthday.classList.remove("input-correct");
     inputBirthday.classList.add("input-error");
     spanElement.textContent = "Birthday cannot be empty";
-  } else if (actualyYear - birthdayYear < 13) {
+  } else if (
+    birthday.substring(0, 4) < 1930 ||
+    birthday.substring(0, 4) > 2010
+  ) {
     inputBirthday.classList.remove("input-correct");
     inputBirthday.classList.add("input-error");
     spanElement.textContent = "Minimum age is 13";
@@ -261,6 +323,34 @@ function validationBirthday(event) {
     inputBirthday.classList.remove("input-error");
     inputBirthday.classList.add("input-correct");
     spanElement.remove();
+    formatDate = changeDateFormat(birthday);
+    console.log(formatDate);
+  }
+}
+
+//Function for format Birthdate to API
+
+function changeDateFormat(val) {
+  var newDate =
+    val.substring(5, 7) +
+    "/" +
+    val.substring(8, 10) +
+    "/" +
+    val.substring(0, 4);
+  return newDate;
+}
+
+function changeDateFormatToForm(val) {
+  if (val == null) {
+    return "";
+  } else {
+    var newDate =
+      val.substring(6, 10) +
+      "-" +
+      val.substring(0, 2) +
+      "-" +
+      val.substring(3, 5);
+    return newDate;
   }
 }
 
@@ -274,10 +364,10 @@ function validationPhone(event) {
     inputPhone.classList.remove("input-correct");
     inputPhone.classList.add("input-error");
     spanElement.textContent = "Phone have to be numbers";
-  } else if (phoneString.length < 10) {
+  } else if (phoneString.length < 10 || phoneString.length > 10) {
     inputPhone.classList.remove("input-correct");
     inputPhone.classList.add("input-error");
-    spanElement.textContent = "The valids digits for the number are 9";
+    spanElement.textContent = "The valids digits for the number are 10";
   } else {
     inputPhone.classList.remove("input-error");
     inputPhone.classList.add("input-correct");
@@ -311,7 +401,19 @@ function validationLocation(event) {
   var spanElement = document.createElement("span");
   spanElement.classList.add("alert-message");
   inputLocation.insertAdjacentElement("afterend", spanElement);
-  if (!containsLettersAndNumbersLocation(location)) {
+  var hasLettersAndNumer = false;
+  for (var i = 0; i < location.length; i++) {
+    if (
+      (location.charCodeAt(i) >= 48 && location.charCodeAt(i) <= 57) ||
+      (location.charCodeAt(i) >= 97 && location.charCodeAt(i) <= 122)
+    ) {
+      hasLettersAndNumer = true;
+    } else {
+      hasLettersAndNumer = false;
+    }
+  }
+
+  if (hasLettersAndNumer === false) {
     inputLocation.classList.remove("input-correct");
     inputLocation.classList.add("input-error");
     spanElement.textContent = "Characters must be alphanumeric";
@@ -327,19 +429,27 @@ function validationLocation(event) {
 }
 
 function validationPostalCode(event) {
-  var postalCode = parseInt(event.target.value);
-  var postalCodeString = event.target.value;
+  var postalCode = event.target.value;
+  var postalCodeToString = postalCode.toString();
   var spanElement = document.createElement("span");
   spanElement.classList.add("alert-message");
   inputPostalCode.insertAdjacentElement("afterend", spanElement);
-  if (postalCodeString.length < 4) {
-    inputPostalCode.classList.remove("input-correct");
-    inputPostalCode.classList.add("input-error");
-    spanElement.textContent = "The minimum number of characters is 5";
-  } else if (isNaN(postalCode)) {
+  var hasOnlyNumber = false;
+  for (var i = 0; i < postalCode.length; i++) {
+    if (postalCode.charCodeAt(i) >= 48 && postalCode.charCodeAt(i) <= 57) {
+      hasOnlyNumber = true;
+    } else {
+      hasOnlyNumber = false;
+    }
+  }
+  if (hasOnlyNumber === false) {
     inputPostalCode.classList.remove("input-correct");
     inputPostalCode.classList.add("input-error");
     spanElement.textContent = "Postal Code have to be numbers";
+  } else if (postalCodeToString.length > 4) {
+    inputPostalCode.classList.remove("input-correct");
+    inputPostalCode.classList.add("input-error");
+    spanElement.textContent = "The minimum number of characters is 4";
   } else {
     inputPostalCode.classList.remove("input-error");
     inputPostalCode.classList.add("input-correct");
@@ -401,7 +511,10 @@ function validationRepeatPassword(event) {
   var spanElement = document.createElement("span");
   spanElement.classList.add("alert-message");
   repeatPassword.insertAdjacentElement("afterend", spanElement);
-  if (text !== inputPassword.value) {
+  if (
+    inputPassword.classList.contains("input-error") ||
+    inputPassword.value !== text
+  ) {
     repeatPassword.classList.remove("input-correct");
     repeatPassword.classList.add("input-error");
     spanElement.textContent = "The password are not the same";
