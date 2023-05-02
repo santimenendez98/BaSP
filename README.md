@@ -32,6 +32,12 @@ This week I created the registration and login pages, on these pages I created s
 
 Preview the project https://santimenendez98.github.io/BaSP-M2023/Week-06/views/index.html
 
+## Week 07
+
+This week I added the property fetch for the project, this property takes an API as a server that contains data and it will be sent to the server if it is verified. And local storage are added for this project only in sign up page.
+
+Preview the project https://santimenendez98.github.io/BaSP-M2023/Week-07/views/index.html
+
 ## Authors
 
 - Santiago Menendez
