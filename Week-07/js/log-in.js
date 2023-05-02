@@ -15,29 +15,17 @@ emailForm.addEventListener("blur", validationEmail);
 emailForm.addEventListener("focus", refreshForm);
 passwordForm.addEventListener("blur", validationPassword);
 passwordForm.addEventListener("focus", refreshForm);
-document.addEventListener("DOMContentLoaded", setFormValue);
 
 // Funciones
 
-inputs.forEach((element) => {
-  {
-    element.required = true;
-  }
-});
-
 function validationEmail(event) {
   var email = event.target.value;
-  var spanElement = document.createElement("span");
-  spanElement.classList.add("alert-message");
-  emailForm.insertAdjacentElement("afterend", spanElement);
   if (validation.test(email)) {
     emailForm.classList.remove("input-error");
     emailForm.classList.add("input-correct");
-    spanElement.remove();
   } else {
     emailForm.classList.remove("input-correct");
     emailForm.classList.add("input-error");
-    spanElement.textContent = "The email format is wrong";
   }
 }
 
@@ -54,9 +42,6 @@ function validationPassword(event) {
   var upperCase = false;
   var lowerCase = false;
   var number = false;
-  var spanElement = document.createElement("span");
-  spanElement.classList.add("alert-message");
-  passwordForm.insertAdjacentElement("afterend", spanElement);
   for (var i = 0; i < passwordValue.length; i++) {
     var charCode = passwordValue.charAt(i);
     if (charCode >= "0" && charCode <= "9") {
@@ -70,26 +55,12 @@ function validationPassword(event) {
   if (!number || !upperCase || !lowerCase) {
     passwordForm.classList.remove("input-correct");
     passwordForm.classList.add("input-error");
-    spanElement.textContent =
-      "This field needs a capital letter, a lower case letter and a number";
   } else if (passwordValue < 8) {
     passwordForm.classList.remove("input-correct");
     passwordForm.classList.add("input-error");
-    spanElement.textContent = "The minimum number of characters is 5";
   } else {
     passwordForm.classList.remove("input-error");
     passwordForm.classList.add("input-correct");
-    spanElement.remove();
-  }
-}
-
-function setFormValue() {
-  var emailLocalStorage = localStorage.getItem("Email");
-  var passwordLocalStorage = localStorage.getItem("Password");
-
-  if (emailLocalStorage && passwordLocalStorage) {
-    emailForm.value = emailLocalStorage;
-    passwordForm.value = passwordLocalStorage;
   }
 }
 
@@ -112,22 +83,20 @@ function btnSubmit(event) {
       .then(function (data) {
         if (data.success) {
           alert(data.msg);
-          localStorage.setItem("Email", emailForm.value);
-          localStorage.setItem("Password", passwordForm.value);
         } else if (data.msg) {
-          alert("Error: " + data.msg);
-        } else if (data.errors) {
-          var errorMsg = [];
-          for (var i = 0; i < data.errors.length; i++) {
-            errorMsg.push(data.errors[i].msg);
-          }
-          alert(errorMsg + "\n");
+          alert(data.msg);
+        } else {
+          var errorMsg = "";
+          data.errors.forEach(function (error) {
+            errorMsg += error.msg + "\n";
+          });
+          alert(errorMsg);
         }
       })
       .catch(function (error) {
-        alert("Error: ", error);
+        alert("Error : " + error);
       });
   } else {
-    alert("Username or Password are incorrect");
+    alert("Email or Password are incorrect");
   }
 }
