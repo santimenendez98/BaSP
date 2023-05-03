@@ -83,14 +83,8 @@ function btnSubmit(event) {
       .then(function (data) {
         if (data.success) {
           alert(data.msg);
-        } else if (data.msg) {
-          alert(data.msg);
         } else {
-          var errorMsg = "";
-          data.errors.forEach(function (error) {
-            errorMsg += error.msg + "\n";
-          });
-          alert(errorMsg);
+          alert(data.msg);
         }
       })
       .catch(function (error) {

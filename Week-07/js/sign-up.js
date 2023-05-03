@@ -20,39 +20,31 @@ var formatDate = "";
 //Event Listeners
 
 inputName.addEventListener("blur", validateName);
-inputName.addEventListener("focus", quitErrorMessage);
+inputName.addEventListener("focus", quitErrorMessageName);
 inputSurname.addEventListener("blur", validationSurname);
-inputSurname.addEventListener("focus", quitErrorMessage);
+inputSurname.addEventListener("focus", quitErrorMessageSurname);
 inputDni.addEventListener("blur", validationDni);
-inputDni.addEventListener("focus", quitErrorMessage);
+inputDni.addEventListener("focus", quitErrorMessageDni);
 inputBirthday.addEventListener("blur", validationBirthday);
-inputBirthday.addEventListener("focus", quitErrorMessage);
+inputBirthday.addEventListener("focus", quitErrorMessageBirthday);
 inputPhone.addEventListener("blur", validationPhone);
-inputPhone.addEventListener("focus", quitErrorMessage);
+inputPhone.addEventListener("focus", quitErrorMessagePhone);
 inputAddress.addEventListener("blur", validationAddress);
-inputAddress.addEventListener("focus", quitErrorMessage);
+inputAddress.addEventListener("focus", quitErrorMessageAddress);
 inputLocation.addEventListener("blur", validationLocation);
-inputLocation.addEventListener("focus", quitErrorMessage);
+inputLocation.addEventListener("focus", quitErrorMessageLocation);
 inputPostalCode.addEventListener("blur", validationPostalCode);
-inputPostalCode.addEventListener("focus", quitErrorMessage);
+inputPostalCode.addEventListener("focus", quitErrorMessagePostalCode);
 inputEmail.addEventListener("blur", validationEmail);
-inputEmail.addEventListener("focus", quitErrorMessage);
+inputEmail.addEventListener("focus", quitErrorMessageEmail);
 inputPassword.addEventListener("blur", validationPassword);
-inputPassword.addEventListener("focus", quitErrorMessage);
+inputPassword.addEventListener("focus", quitErrorMessagePassword);
 repeatPassword.addEventListener("blur", validationRepeatPassword);
-repeatPassword.addEventListener("focus", quitErrorMessage);
+repeatPassword.addEventListener("focus", quitErrorMessageRepeatPassword);
 formRegistration.addEventListener("submit", validateForm);
 document.addEventListener("DOMContentLoaded", setItemsLocalStorage);
 
 //Functions
-
-function quitErrorMessage() {
-  var alertMessage = document.querySelector(".alert-message");
-  if (alertMessage) {
-    alertMessage.remove();
-    alertMessage.classList.remove("input-error");
-  }
-}
 
 function validateForm(event) {
   event.preventDefault();
@@ -153,13 +145,13 @@ function validateForm(event) {
           localStorage.setItem("Email", inputEmail.value);
           localStorage.setItem("Password", inputPassword.value);
           localStorage.setItem("Repeat Password", repeatPassword.value);
+        } else if (data.msg) {
+          alert(data.msg);
         }
       })
       .catch(function (error) {
         alert("Error: " + error.msg);
       });
-  } else {
-    alert("Some data is wrong");
   }
 }
 
@@ -237,6 +229,13 @@ function validateName(event) {
   }
 }
 
+function quitErrorMessageName() {
+  var alertMessage = document.querySelector("#name + .alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
+  }
+}
+
 function validationSurname(event) {
   var text = event.target.value;
   var spanElement = document.createElement("span");
@@ -275,6 +274,13 @@ function validationSurname(event) {
   }
 }
 
+function quitErrorMessageSurname() {
+  var alertMessage = document.querySelector("#surname + .alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
+  }
+}
+
 function validationDni(event) {
   var dni = event.target.value;
   var spanElement = document.createElement("span");
@@ -300,6 +306,13 @@ function validationDni(event) {
     inputDni.classList.remove("input-error");
     inputDni.classList.add("input-correct");
     spanElement.remove();
+  }
+}
+
+function quitErrorMessageDni() {
+  var alertMessage = document.querySelector("#dni + .alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
   }
 }
 
@@ -354,6 +367,13 @@ function changeDateFormatToForm(val) {
   }
 }
 
+function quitErrorMessageBirthday() {
+  var alertMessage = document.querySelector("#birthday + .alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
+  }
+}
+
 function validationPhone(event) {
   var phoneToNumber = parseInt(event.target.value);
   var phoneString = event.target.value;
@@ -375,6 +395,13 @@ function validationPhone(event) {
   }
 }
 
+function quitErrorMessagePhone() {
+  var alertMessage = document.querySelector("#phone + .alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
+  }
+}
+
 function validationAddress(event) {
   var address = event.target.value;
   var addressBlank = address.indexOf(" ");
@@ -393,6 +420,13 @@ function validationAddress(event) {
     inputAddress.classList.remove("input-error");
     inputAddress.classList.add("input-correct");
     spanElement.remove();
+  }
+}
+
+function quitErrorMessageAddress() {
+  var alertMessage = document.querySelector("#address + .alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
   }
 }
 
@@ -428,6 +462,13 @@ function validationLocation(event) {
   }
 }
 
+function quitErrorMessageLocation() {
+  var alertMessage = document.querySelector("#location + .alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
+  }
+}
+
 function validationPostalCode(event) {
   var postalCode = event.target.value;
   var postalCodeToString = postalCode.toString();
@@ -456,6 +497,14 @@ function validationPostalCode(event) {
     spanElement.remove();
   }
 }
+
+function quitErrorMessagePostalCode() {
+  var alertMessage = document.querySelector("#postal-code + .alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
+  }
+}
+
 function validationEmail(event) {
   var email = event.target.value;
   var spanElement = document.createElement("span");
@@ -469,6 +518,13 @@ function validationEmail(event) {
     inputEmail.classList.remove("input-correct");
     inputEmail.classList.add("input-error");
     spanElement.textContent = "The email format is wrong";
+  }
+}
+
+function quitErrorMessageEmail() {
+  var alertMessage = document.querySelector("#email + .alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
   }
 }
 
@@ -506,6 +562,13 @@ function validationPassword(event) {
   }
 }
 
+function quitErrorMessagePassword() {
+  var alertMessage = document.querySelector("#password + .alert-message");
+  if (alertMessage) {
+    alertMessage.remove();
+  }
+}
+
 function validationRepeatPassword(event) {
   var text = event.target.value;
   var spanElement = document.createElement("span");
@@ -522,5 +585,14 @@ function validationRepeatPassword(event) {
     repeatPassword.classList.remove("input-error");
     repeatPassword.classList.add("input-correct");
     spanElement.remove();
+  }
+}
+
+function quitErrorMessageRepeatPassword() {
+  var alertMessage = document.querySelector(
+    "#repeat-password + .alert-message"
+  );
+  if (alertMessage) {
+    alertMessage.remove();
   }
 }
