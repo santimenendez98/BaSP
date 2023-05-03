@@ -147,6 +147,12 @@ function validateForm(event) {
           localStorage.setItem("Repeat Password", repeatPassword.value);
         } else if (data.msg) {
           alert(data.msg);
+        } else if (data.errors) {
+          var errorMsg = [];
+          for (var i = 0; i < data.errors.length; i++) {
+            errorMsg.push(data.errors[i].msg);
+          }
+          alert(errorMsg.join("\n"));
         }
       })
       .catch(function (error) {
@@ -551,10 +557,10 @@ function validationPassword(event) {
     inputPassword.classList.add("input-error");
     spanElement.textContent =
       "This field needs a capital letter, a lower case letter and a number";
-  } else if (passwordValue < 8) {
+  } else if (passwordValue.length < 7) {
     inputPassword.classList.remove("input-correct");
     inputPassword.classList.add("input-error");
-    spanElement.textContent = "The minimum number of characters is 5";
+    spanElement.textContent = "The minimum number of characters is 7";
   } else {
     inputPassword.classList.remove("input-error");
     inputPassword.classList.add("input-correct");
